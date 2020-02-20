@@ -1,8 +1,8 @@
 import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
-from gym_wumpusworld.envs.WumpusWorld import Wumpus_World
-from gym_wumpusworld.envs.WorldState import World_State, Action
+from fh_ac_ai_gym.wumpus.WumpusWorld import Wumpus_World
+from fh_ac_ai_gym.wumpus.WorldState import World_State, Action
 
 
 class WumpusWorldEnv(gym.Env):

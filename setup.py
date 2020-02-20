@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='gym_fh-aachen_ki2',
+setup(name='fh_ac_ai_gym',
       version='0.0.1',
       install_requires=['gym','numpy']
       )

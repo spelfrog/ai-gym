@@ -1,6 +1,6 @@
 import random as r
 import numpy
-from gym_wumpusworld.envs.WorldState import *
+from fh_ac_ai_gym.wumpus.WorldState import *
 
 class Wumpus_World:
 
