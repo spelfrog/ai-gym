@@ -7,7 +7,7 @@ class Wumpus_World:
     def __init__(self, size):
         self.score = 0
         self.old_score = 0
-        self.random_prob = 0.2
+        self.random_prob = 0
         self.state = World_State()
         self.percept = Perception()
         self.update_perception()
