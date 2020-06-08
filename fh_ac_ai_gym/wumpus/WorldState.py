@@ -1,5 +1,8 @@
 import random as r
+import json
 from enum import Enum
+import os
+
 
 class Location:
 
@@ -34,6 +37,13 @@ class Action:
     CLIMB = 5
 
 
+def localize(x):
+    if type(x) is list:
+        x = Location(x[0], x[1])
+    return x
+
+
+
 class World_State:
 
     def __init__(self):
@@ -42,15 +52,31 @@ class World_State:
         # x , y 
         self.agent_location = Location(0,0)
         self.agent_direction = Direction.EAST
-        self.wumpus_location = self.init_wumpus_location()
-        self.pit_locations = self.init_pit_locations()
-        self.gold_location = self.init_gold_location()
+        self.load_json() 
+
+        if not self.json:
+            self.wumpus_location = self.init_wumpus_location()
+            self.pit_locations = self.init_pit_locations()
+            self.gold_location = self.init_gold_location()
         self.agent_alive = True
         self.has_arrow = True
         self.has_gold = False
         self.in_cave = True
         self.wumpus_alive = True
+    
+    def load_json(self):
 
+        path_to_file = os.path.realpath(__file__)[:-13]
+        json_file = open(path_to_file + 'conf.json')
+        config = json.load(json_file)
+        config = config['Config']
+        include = eval(config['Include'])
+        self.json = include
+        if include:
+            vals = list(config['Pit'])
+            self.pit_locations = list(map(localize, vals))
+            self.wumpus_location = localize(config['Wumpus'])
+            self.gold_location =   localize(config['Gold'])
 
     def reset(self):
         self.agent_location = Location(0,0)
