@@ -11,6 +11,12 @@ Then install this package via
 ```
 pip install -e .
 ```
+or 
+```
+pip install git+https://github.com/spelfrog/ai-gym.git@master#egg=fh-ac-ai-gym
+```
+
+
 
 ## Usage
 
