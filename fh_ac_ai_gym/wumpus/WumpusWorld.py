@@ -109,13 +109,13 @@ class Wumpus_World:
         a_d = self.state.agent_direction
         a_l, w_l = self.state.agent_location, self.state.wumpus_location 
         if a_d == Direction.WEST:
-            if a_l.x < w_l.x and a_l.y == w_l.y:
+            if a_l.x > w_l.x and a_l.y == w_l.y:
                 self.__kill_wumpus()
         elif a_d == Direction.SOUTH:
             if a_l.x == w_l.x and a_l.y > w_l.y:
                 self.__kill_wumpus()
         elif a_d == Direction.EAST:
-            if a_l.x > w_l.x and a_l.y == w_l.y:
+            if a_l.x < w_l.x and a_l.y == w_l.y:
                 self.__kill_wumpus()
         elif a_d == Direction.NORTH:
             if a_l.x == w_l.x and a_l.y < w_l.y:
